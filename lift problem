@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class LiftCapacity {
+    public static int maxPeople(int N, int X, int[] A) {
+        Arrays.sort(A);  
+        int count = 0, sum = 0;
+
+        for (int i = 0; i < N; i++) {
+            if (sum + A[i] <= X) {
+                sum += A[i];
+                count++;
+            } else {
+                break;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        
+        int N = 3;
+        int X = 9;
+        int[] A = {5, 1, 5};
+
+        System.out.println("Maximum number of people: " + maxPeople(N, X, A));
+    }
+}
