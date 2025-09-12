@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class MinimumNotes {
+    
+    
+    static int gcd(int a, int b) {
+        if (b == 0) return a;
+        return gcd(b, a % b);
+    }
+
+    
+    static int gcdExcept(int[] arr, int skip) {
+        int g = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i == skip) continue;
+            g = gcd(g, arr[i]);
+        }
+        return g;
+    }
+
+    
+    public static int minNotes(int N, int[] salaries) {
+        int total = Arrays.stream(salaries).sum();
+        int minNotes = Integer.MAX_VALUE;
+
+        for (int i = 0; i < N; i++) {
+            int g = gcdExcept(salaries, i);
+            if (g > 0) {
+                minNotes = Math.min(minNotes, total / g);
+            }
+        }
+        return minNotes;
+    }
+
+    public static void main(String[] args) {
+        int N = 4;
+        int[] salaries = {2, 4, 6, 3};
+
+        System.out.println("Minimum number of notes required: " + minNotes(N, salaries));
+    }
+}
