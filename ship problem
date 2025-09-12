@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ShipRounds {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+       
+        int C = sc.nextInt();
+
+    
+        int N = sc.nextInt();
+
+        
+        int rounds = (N + C - 1) / C;
+
+        
+        System.out.println(rounds);
+
+        sc.close();
+    }
+}
