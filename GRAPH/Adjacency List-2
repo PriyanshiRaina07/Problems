@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+
+public class HelloWorld {
+    public static void main(String[] args){ 
+         int Vertex = 5;
+
+        // Each int[] stores {to, weight}
+        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+
+        // Initialize adjacency list
+        for (int i = 0; i < Vertex; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        // Directed weighted edges
+        addEdge(adj, 0, 1, 5); // 0 → 1 (5)
+        addEdge(adj, 0, 2, 2); // 0 → 2 (2)
+        addEdge(adj, 1, 3, 7); // 1 → 3 (7)
+        addEdge(adj, 2, 4, 3); // 2 → 4 (3)
+
+        printAdjList(adj, Vertex);
+    }
+
+    public static void addEdge(ArrayList<ArrayList<int[]>> adj, int u, int v, int wt) {
+        adj.get(u).add(new int[]{v, wt});
+    }
+
+    public static void printAdjList(ArrayList<ArrayList<int[]>> adj, int Vertex) {
+        for (int i = 0; i < Vertex; i++) {
+            System.out.print(i + " -> ");
+            for (int[] edge : adj.get(i)) {
+                System.out.print("(" + edge[0] + ", " + edge[1] + ") ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+        
+    
+
+
+     
+
+
+
