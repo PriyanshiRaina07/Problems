@@ -1,0 +1,48 @@
+import java.util.*;
+
+public class HelloWorld {
+    public static void main(String[] args){ 
+       Scanner sc = new Scanner(System.in);
+       int Vertex = 5;
+
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+       for(int i = 0; i < Vertex; i++){       //empty ArrayList
+        adj.add(new ArrayList<>());
+       }
+       adj.get(0).add(1);
+       adj.get(0).add(2);    //Taking input
+       adj.get(1).add(3);
+       adj.get(2).add(4);
+
+       bfs(Vertex,adj);
+    }
+    public static void bfs(int Vertex, ArrayList<ArrayList<Integer>> adj){
+        boolean[] Visited = new boolean[Vertex];
+        Queue<Integer> q = new LinkedList<>();
+
+        Visited[0] = true;      //starting 0 to be true i.e visited and removed and placed at node
+        q.add(0);
+
+        while(!q.isEmpty()){               //while queue is not enpty remove it and place at node and print node 
+            int node = q.poll();
+            System.out.print(node+" ");
+
+            for(int neighbour : adj.get(node)){        //to check next neighbor node is visited or not 
+                if(!Visited[neighbour]){           //if not visited 
+                    Visited[neighbour]=true;       //visit the neigbour and make it true
+                    q.add(neighbour);              //add that visited neighbor to node (ans).
+                }
+            }
+        }
+    }
+}
+
+        
+    
+
+
+     
+
+
+
