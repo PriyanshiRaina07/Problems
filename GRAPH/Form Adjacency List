@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class HelloWorld {
+    public static void main(String[] args){ 
+       Scanner sc = new Scanner(System.in);
+       int Vertex = sc.nextInt();
+       int Edge = sc.nextInt();
+
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+       for(int i = 0; i < Vertex; i++){
+        adj.add(new ArrayList<>());
+       }
+        for (int i = 0; i < Edge; i++) {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            adj.get(u).add(v); // directed edge u → v
+        }
+        // Print adjacency list
+        for (int i = 0; i < Vertex; i++) {
+            System.out.print(i + " -> ");
+            for (int v : adj.get(i)) {
+                System.out.print(v + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+        
+    
+
+
+     
+
+
+
+Form 
